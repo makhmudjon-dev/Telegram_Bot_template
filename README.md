@@ -1,0 +1,66 @@
+# ⚡ Telegram bot
+
+It is a template you can use for creating telegram bot with aiogram 3
+
+### Tools:
+
+- 💪 Aiogram (v3)
+- 🤹🏽 Loguru
+
+## 🔥 Getting started
+
+### Requirements:
+
+- Python
+
+### Installing
+
+###### For linux
+
+```bash
+cd aiogram-template
+python3 -m venv env
+. env/bin/activate
+pip install -r requirements.txt
+```
+
+###### For windows
+
+```bash
+cd aiogram-template
+python -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+```
+
+### Starting
+
+Create a file named `.env`.
+Add the following line to the `.env` file: `BOT_TOKEN="TOKEN"`
+Replace `TOKEN` with your actual bot token.
+Save the `.env` file.
+```bash
+python src/bot.py
+```
+
+## ✍ Adding handlers
+
+Just create new file in _src/handlers_ folder or its subfolder
+
+#### Initialize router and use it to handle events:
+
+```python
+from aiogram import Router
+my_router = Router()
+```
+
+#### Add created router to router list in _src/handlers/\_\_init\_\_.py_:
+
+```python
+from .my_file import my_router
+routers = [my_router]
+```
+
+## 🙋🏽‍♂️ Contact me
+
+[<img width="30px" title="lleballex | Telegram" src="https://raw.githubusercontent.com/github/explore/main/topics/telegram/telegram.png">](https://t.me/makhmud_dev)
