@@ -1,12 +1,13 @@
-from typing import Union, List, NoReturn
-
+from typing import Union, List
 from aiogram.filters import BaseFilter
 from aiogram.types import Message
 
 class IsAdminFilter(BaseFilter):
-    def __init__(self, admins_list: Union[str, List]) -> NoReturn:
-        self.ADMINS = admins_list
+    def __init__(self, admins_list: Union[int, List[int], List[str]]):
+        if isinstance(admins_list, list):
+            self.ADMINS = set(map(int, admins_list))
+        elif isinstance(admins_list, int):
+            self.ADMINS = {admins_list}
 
     async def __call__(self, message: Message) -> bool:
-        if isinstance(self.ADMINS, List):
-            return message.from_user.id in [int(id) for id in self.ADMINS]
+        return message.from_user.id in self.ADMINS
