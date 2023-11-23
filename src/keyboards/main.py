@@ -1,4 +1,4 @@
-from aiogram.utils.keyboard import InlineKeyboardMarkup, InlineKeyboardBuilder
+from aiogram.utils.keyboard import InlineKeyboardMarkup, InlineKeyboardBuilder, ReplyKeyboardBuilder, ReplyKeyboardMarkup
 from typing import List, Union
 from itertools import zip_longest
 
@@ -33,6 +33,31 @@ def inline_builder(
             builder.button(text=txt, callback_data=cb)
         else:
             raise ValueError("Mismatch in lengths of text and callback_data lists.")
+
+    builder.adjust(*sizes)
+    return builder.as_markup()
+
+
+def reply_builder(
+        text: Union[str, List[str]],
+        sizes: Union[int, List[int]] = 1
+) -> ReplyKeyboardMarkup:
+    """
+    Builds a reply keyboard using given text.
+
+    :param text: Text for each button (single string or list of strings).
+    :param sizes: Number of buttons per row (single integer or list of integers, default is 1).
+    :return: ReplyKeyboardMarkup object.
+    """
+    builder = ReplyKeyboardBuilder()
+
+    if isinstance(text, str):
+        text = [text]
+    if isinstance(sizes, int):
+        sizes = [sizes]
+
+    for txt in text:
+        builder.button(text=txt)
 
     builder.adjust(*sizes)
     return builder.as_markup()
