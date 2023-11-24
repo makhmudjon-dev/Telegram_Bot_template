@@ -1,5 +1,5 @@
 from keyboards.main import inline_builder
-from ...filters.admin import IsAdminFilter
+from filters.admin import IsAdminFilter
 from typing import NoReturn
 
 from aiogram import Router
