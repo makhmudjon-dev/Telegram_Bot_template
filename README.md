@@ -6,6 +6,16 @@ It is a template you can use for creating telegram bot with aiogram 3
 
 - 💪 Aiogram (v3)
 - 🤹🏽 Loguru
+## 🧑‍💻 Changelog
+
+### [1.0.1] - 2023-11-23
+🐛 Fixed bug in feature Z.
+📚 Updated filters.
+
+### [1.0.0] - 2023-11-20
+🎉 Initial release.
+
+---
 
 ## 🔥 Getting started
 
@@ -37,7 +47,7 @@ pip install -r requirements.txt
 
 Create a file named `.env`.
 Add the following line to the `.env` file: `BOT_TOKEN="TOKEN"`
-Replace `TOKEN` with your actual bot token.
+Replace `TOKEN` with your actual bot token. If you have `admins` you need to add admin_users `id` to `ADMINS=[]`.
 Save the `.env` file.
 ```bash
 python src/bot.py
