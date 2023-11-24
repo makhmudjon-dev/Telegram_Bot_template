@@ -9,11 +9,11 @@ It is a template you can use for creating telegram bot with aiogram 3
 ## 🧑‍💻 Changelog
 
 ### [1.0.1] - 2023-11-23
-🐛 Fixed bug in feature Z.
-📚 Updated filters.
+    1.🐛 Fixed bug in feature Z.
+    2.📚 Updated filters.
 
 ### [1.0.0] - 2023-11-20
-🎉 Initial release.
+    1.🎉 Initial release.
 
 ---
 
