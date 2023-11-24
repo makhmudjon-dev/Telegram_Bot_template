@@ -1,6 +1,10 @@
-from typing import cast
-from os import getenv
+from environs import Env
 
+env = Env()
+env.read_env()
 
-BOT_TOKEN = cast(str, getenv('BOT_TOKEN'))
-assert BOT_TOKEN is not None
+BOT_TOKEN = env.str('BOT_TOKEN')
+ADMINS = [int(admin) for admin in env.list('ADMINS')]
+
+assert BOT_TOKEN is not None, "BOT_TOKEN is not set in environment variables."
+assert ADMINS is not None
