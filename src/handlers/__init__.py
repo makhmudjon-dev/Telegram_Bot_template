@@ -1,5 +1,5 @@
-from src.handlers.user.default import user_router
-from src.handlers.admin.default import admin_router
+from handlers.user.default import user_router
+from handlers.admin.default import admin_router
 
 from aiogram import Router
 from typing import NoReturn, List
