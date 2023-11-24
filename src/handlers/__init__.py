@@ -1,9 +1,10 @@
-from .default import default_router
+from src.handlers.user.default import user_router
+from src.handlers.admin.default import admin_router
 
 from aiogram import Router
-from typing import NoReturn
+from typing import NoReturn, List
 
-routers: list[Router] = [default_router]
+routers: List[Router] = [admin_router, user_router]
 
 
 def register_handlers(main_router: Router) -> NoReturn:
