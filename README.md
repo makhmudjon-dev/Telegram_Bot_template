@@ -8,6 +8,9 @@ It is a template you can use for creating telegram bot with aiogram 3
 - 🤹🏽 Loguru
 ## 🧑‍💻 Changelog
 
+### [1.0.2] - 2023-12-08
+    1. 🐛 Fixed bug in feature Z.
+
 ### [1.0.1] - 2023-11-23
     1.🐛 Fixed bug in feature Z.
     2.📚 Updated filters.
