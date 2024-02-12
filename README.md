@@ -32,7 +32,7 @@ It is a template you can use for creating telegram bot with aiogram 3
 
 ### Installing
 
-###### For linux
+###### For linux and macOS
 
 ```bash
 cd aiogram-template
