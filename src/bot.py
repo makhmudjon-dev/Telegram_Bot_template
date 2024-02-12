@@ -1,7 +1,11 @@
+from db import Base
 from handlers import register_handlers
 from utils.set_bot_commands import set_default_commands
+
 from aiogram import Dispatcher, Bot
 from aiogram.fsm.storage.memory import MemoryStorage
+
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
 from asyncio import run
 from pathlib import Path
@@ -17,8 +21,13 @@ async def main() -> None:
 
     import config
 
+    engine = create_async_engine(config.DB_URL, echo=False)
+    sessionmaker = async_sessionmaker(engine, expire_on_commit=False)
+
+    async with engine.begin() as connection:
+        await connection.run_sync(Base.metadata.create_all)
     dp: Dispatcher = Dispatcher(storage=MemoryStorage())
-    bot = Bot(config.BOT_TOKEN)
+    bot: Bot = Bot(config.BOT_TOKEN)
     register_handlers(dp)
 
     logger.info('Bot started')
