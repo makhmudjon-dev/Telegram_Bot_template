@@ -1,9 +1,11 @@
 from db import Base
 from handlers import register_handlers
+from middlewares.db import DbSessionMiddleware
 from utils.set_bot_commands import set_default_commands
 
 from aiogram import Dispatcher, Bot
 from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.utils.callback_answer import CallbackAnswerMiddleware
 
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
@@ -26,7 +28,11 @@ async def main() -> None:
 
     async with engine.begin() as connection:
         await connection.run_sync(Base.metadata.create_all)
+
     dp: Dispatcher = Dispatcher(storage=MemoryStorage())
+    dp.update.middleware(DbSessionMiddleware(session_pool=sessionmaker))
+    dp.callback_query.middleware(CallbackAnswerMiddleware())
+
     bot: Bot = Bot(config.BOT_TOKEN)
     register_handlers(dp)
 
