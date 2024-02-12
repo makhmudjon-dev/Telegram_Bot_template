@@ -1,12 +1,12 @@
 from typing import NoReturn
 
-from keyboards.main import inline_builder, reply_builder
 from db.model import User
+from keyboards.main import inline_builder, reply_builder
 
 from aiogram import Router, F
-from aiogram.types import Message, CallbackQuery
 from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
+from aiogram.types import Message, CallbackQuery
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
