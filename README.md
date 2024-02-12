@@ -6,8 +6,12 @@ It is a template you can use for creating telegram bot with aiogram 3
 
 - 💪 Aiogram (v3)
 - 🤹🏽 Loguru
+- 📔 SqlAlchemy (ORM)
 ## 🧑‍💻 Changelog
 
+### [1.0.3] - 2024-02-12
+    1. 🐛 Fixed bug in feature Z.
+    2. 📑Adding database
 ### [1.0.2] - 2023-12-08
     1. 🐛 Fixed bug in feature Z.
 
